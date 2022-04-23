@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "social-media-data-scraping"
+version = "0.1.0"
+description = "Can be used to collect data from social media websites for NLU projects."
+authors = ["Armand Silviu Gurgu <armandgurgu23@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+snscrape = "^0.4.3"
+ipython = "^8.2.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
