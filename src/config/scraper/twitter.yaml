@@ -1,1 +1,6 @@
 name: twitter
+scraper_module: search
+twitter_search_module_config:
+  num_results_per_search: 5
+  search_queries_path: "${oc.env:HOME}/Documents/side_projects/social-media-data-scraping/src/scrapers/twitter/queries/search/search_queries.txt"
+
