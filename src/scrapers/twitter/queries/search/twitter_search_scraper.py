@@ -18,10 +18,10 @@ class Twitter_Search_Handler:
             ).get_items()
             search_result_count = 0
             for current_result in query_iterator:
-                search_result_count += 1
                 if search_result_count == self.num_results_per_search:
                     break
                 yield asdict(current_result), current_query
+                search_result_count += 1
 
     @property
     def queries_to_search(self):

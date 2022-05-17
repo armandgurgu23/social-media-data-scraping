@@ -9,6 +9,7 @@ python = "^3.8"
 snscrape = "^0.4.3"
 ipython = "^8.2.0"
 hydra-core = "^1.1.2"
+pandas = "^1.4.2"
 
 [tool.poetry.dev-dependencies]
 
