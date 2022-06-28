@@ -1,0 +1,18 @@
+name: reddit
+scraper_module: subreddit
+subreddit_search_module_config:
+  num_results_per_search: 10
+  search_queries_path: "${oc.env:HOME}/Documents/side_projects/social-media-data-scraping/src/scrapers/reddit/subreddit/subreddit_queries.txt"
+  subreddit_params_to_extract:
+    - author
+    - body
+    - created
+    - id
+    - subreddit
+    - url
+output_format: csv
+pandas_to_csv_config:
+  date_format: '%Y:%m:%d-%H:%M:%S'
+  header: True
+  index: False
+  sep: "\t"

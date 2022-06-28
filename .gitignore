@@ -1,3 +1,4 @@
 src/outputs
 src/multirun
 src/scrapers/twitter/queries/search/*.txt
+__pycache__

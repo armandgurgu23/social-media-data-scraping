@@ -12,7 +12,10 @@ logger = logging.getLogger(__name__)
 def main_twitter_scraper(cfg: DictConfig) -> None:
     logger.info("Running twitter scraper!")
     if cfg.scraper.scraper_module == "search":
-        data_handler = Twitter_Search_Handler(cfg.scraper.twitter_search_module_config)
+        data_handler = Twitter_Search_Handler(
+            cfg.scraper.twitter_search_module_config)
+        logger.info(
+            f'Finished initializing the Twitter {cfg.scraper.scraper_module} module! Scraping will start!')
     else:
         raise NotImplementedError(
             f"Scraper module {cfg.scraper.scraper_module} not supported for Twitter!"
@@ -23,12 +26,14 @@ def main_twitter_scraper(cfg: DictConfig) -> None:
 
     if cfg.scraper.output_format == "csv":
         csv_data = csv_data_generator(cfg, data_handler)
-        csv_data.to_csv(path_or_buf=output_path, **cfg.scraper.pandas_to_csv_config)
+        csv_data.to_csv(path_or_buf=output_path, **
+                        cfg.scraper.pandas_to_csv_config)
     else:
         raise NotImplementedError(
             f"Outputting scraped dataset in format {cfg.scraper.output_format} not supported for Twitter!"
         )
 
-    logger.info(f"Finished running twitter scraper! Dataset dumped at: {getcwd()}")
+    logger.info(
+        f"Finished running twitter scraper! Dataset dumped at: {getcwd()}")
 
     return
