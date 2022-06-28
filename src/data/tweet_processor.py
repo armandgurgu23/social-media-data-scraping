@@ -17,7 +17,8 @@ class Tweet_Processor(object):
             tweet_subset = self.extract_fields_from_tweet(current_tweet_dict)
             tweet_subset["query"] = current_query
             tweet_subset = self.process_fields(tweet_subset)
-            all_tweet_dicts.append(tweet_subset)
+            if tweet_subset.get('content') and tweet_subset['content'].strip():
+                all_tweet_dicts.append(tweet_subset)
         return all_tweet_dicts
 
     def extract_fields_from_tweet(self, raw_tweet: Dict[str, Any]):

@@ -16,7 +16,8 @@ class Reddit_Processor(object):
             post_subset = self.extract_fields(current_data_dict)
             post_subset["query"] = current_query
             post_subset = self.process_fields(post_subset)
-            all_reddit_dicts.append(post_subset)
+            if post_subset.get('body') and post_subset['body'].strip():
+                all_reddit_dicts.append(post_subset)
         return all_reddit_dicts
 
     def process_fields(self, datapoint_subset: Dict[str, Any]):
